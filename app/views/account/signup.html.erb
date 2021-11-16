@@ -1,0 +1,35 @@
+<%=form_with(model:@user) do |form| %>
+
+    <div >
+      <%=form.label :first_name %>
+      <%=form.text_field :first_name %>
+    </div>
+
+    <div >
+      <%=form.label :last_name %>
+      <%=form.text_field :last_name %>
+    </div>
+  <div class>
+    <%=form.label :date_of_birth %>
+    <%=form.date_field :date_of_birth %>
+  </div>
+  <div class>
+    <%=form.label :email %>
+    <%=form.email_field :email %>
+  </div>
+  <div class>
+    <%=form.label :password %>
+    <%=form.password_field :password%>
+  </div>
+  <div class>
+    <%=form.label :password_confirmation %>
+    <%=form.password_field :password_confirmation%>
+  </div>
+  <div >
+    <%=form.label :mobile_number %>
+    <%=form.number_field :mobile%>
+  </div>
+    <div>
+      <%=form.submit "Create Account" %>
+    </div>
+<%end %>
