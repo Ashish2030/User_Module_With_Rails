@@ -10,5 +10,8 @@ class UserNotifierMailer < ApplicationMailer
     @password = password
     mail(:to => (user.email), :subject => "Your Temproary password...")
   end
-
+  def reset_password_confirmation(user)
+    @user = user
+    mail(:to => (user.email), :subject => "Your password has been reset...")
+  end
 end

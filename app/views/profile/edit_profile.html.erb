@@ -1,2 +1,4 @@
 <h1>Profile#edit_profile</h1>
 <p>Find me in app/views/profile/edit_profile.html.erb</p>
+<%=@user.inspect %>
+<%= image_tag(@user.image) if @user.image.attached? %>
