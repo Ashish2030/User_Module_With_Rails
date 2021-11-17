@@ -2,7 +2,7 @@ class AccountController < ApplicationController
   def signup
     @user=User.new
     if request.post?
-      puts "--------------"
+      logger.info("POST REQUEST")
       @user=User.new(user_params)
       puts "--------------"
       if @user.save
@@ -41,6 +41,6 @@ class AccountController < ApplicationController
 
   private
   def user_params
-    params.permit(:first_name,:last_name,:date_of_birth,:mobile,:email,:password,:hashed_password)
+    params.require(:user).permit(:first_name,:last_name,:date_of_birth,:mobile,:email,:password,:hashed_password,:image)
   end
 end

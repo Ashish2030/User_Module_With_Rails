@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one_attached :image
+
   validates :first_name,:last_name,:date_of_birth,presence: true
   validates :email,presence: true,uniqueness: true
   validates :password,presence: true,confirmation: true
