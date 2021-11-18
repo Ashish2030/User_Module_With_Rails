@@ -10,6 +10,7 @@ class PasswordController < ApplicationController
   end
   def forget_password
     if request.post?
+      logger.info(params[:email])
       @user = User.find_by_email(params[:email])
       if @user
         new_password = random_password

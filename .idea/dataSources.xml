@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Ashish\Desktop\Second\user_module\db\development.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="development [2]" uuid="fb07b79d-8b19-490e-ae77-0b44863a465d">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Ashish\Desktop\Second\New folder\User_Module_With_Rails\db\development.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
