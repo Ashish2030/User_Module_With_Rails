@@ -1,45 +1,193 @@
-<%=form_with(model:@user,local: true,url: account_signup_path) do |form| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this employee from being saved:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <div >
-      <%=form.label :first_name %>
-      <%=form.text_field :first_name %>
-    </div>
 
-    <div >
-      <%=form.label :last_name %>
-      <%=form.text_field :last_name %>
-    </div>
-  <div class>
-    <%=form.label :date_of_birth %>
-    <%=form.date_field :date_of_birth %>
-  </div>
-  <div class>
-    <%=form.label :email %>
-    <%=form.email_field :email %>
-  </div>
-  <div class>
-    <%=form.label :password %>
-    <%=form.password_field :password%>
-  </div>
-  <div class>
-    <%=form.label :password_confirmation %>
-    <%=form.password_field :password_confirmation%>
-  </div>
-  <div >
-    <%=form.label :mobile_number %>
-    <%=form.number_field :mobile%>
-  </div>
+<head>
+  <meta charset="utf-8">
+  <style>
+      html
+      {
+          scroll-behavior: smooth;
+      }
+      *
+      {
+          padding: 0; margin: 0;
+      }
+      body
+      {
+          background-color:#01002a;
+      }
 
-    <div>
-      <%=form.submit "Create Account" %>
+      * {
+          padding: 0;
+          margin: 0;
+          color: #1a1f36;
+          box-sizing: border-box;
+          word-wrap: break-word;
+          font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+      }
+      body {
+          min-height: 50%;
+          background-color: #ffffff;
+      }
+      h1 {
+          letter-spacing: -1px;
+      }
+      a {
+          color: #5469d4;
+          text-decoration: unset;
+      }
+      .login-root {
+          background: #fff;
+          display: flex;
+          width: 100%;
+          min-height: 80vh;
+          overflow: hidden;
+      }
+
+      .flex-flex {
+          display: flex;
+      }
+
+      .box-root {
+          box-sizing: border-box;
+      }
+      .flex-direction--column {
+          -ms-flex-direction: column;
+          flex-direction: column;
+      }
+
+      .padding-top--24 {
+          padding-top: 18px;
+      }
+      .padding-bottom--24 {
+          padding-bottom: 18px;
+      }
+      .padding-horizontal--48 {
+          padding: 19px;
+      }
+      .padding-bottom--15 {
+          padding-bottom: 15px;
+      }
+      .formbg {
+          margin: 0px auto;
+          width: 80%;
+          max-width: 448px;
+          background: white;
+          border-radius: 4px;
+          box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+      }
+      label {
+          margin-bottom: 2px;
+      }
+      .reset-pass a,label {
+          font-size: 14px;
+          font-weight: 600;
+          display: block;
+      }
+      .reset-pass > a {
+          text-align: right;
+          margin-bottom: 10px;
+      }
+
+      .field input {
+          font-size: 15px;
+          line-height: 20px;
+          padding: 5px 13px;
+          width: 100%;
+          min-height: 30px;
+          border: unset;
+          border-radius: 4px;
+          outline-color: rgb(84,105,212);
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(60, 66, 87, 0.16) 0px 0px 0px 1px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+          rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+      }
+
+
+  </style>
+</head>
+<body>
+<div class="login-root">
+  <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+    <div class="formbg-outer">
+      <div class="formbg">
+        <div class="formbg-inner padding-horizontal--48">
+          <span class="padding-bottom--15">Login in to your account</span>
+          <%=form_with(model:@user,local: true,url: account_signup_path) do |form| %>
+            <% if @user.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this employee from being saved:</h2>
+                <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%=form.label :first_name %>
+              <%=form.text_field :first_name %>
+            </div>
+            </div>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%=form.label :last_name %>
+              <%=form.text_field :last_name %>
+            </div>
+            </div>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%=form.label :date_of_birth %>
+              <%=form.date_field :date_of_birth %>
+            </div>
+              </div>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%=form.label :email %>
+              <%=form.email_field :email %>
+            </div>
+            </div>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%=form.label :password %>
+              <%=form.password_field :password%>
+            </div>
+            </div>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%=form.label :password_confirmation %>
+              <%=form.password_field :password_confirmation%>
+            </div>
+            </div>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%=form.label :mobile_number %>
+              <%=form.number_field :mobile%>
+            </div>
+            </div>
+            <div class="field padding-bottom--24">
+              <div class="field">
+              <%= form.label :image %><br>
+              <%= form.file_field :image %><br>
+            </div>
+            </div>
+            <div>
+              <div class="field padding-bottom--24">
+                <div class="action">
+                  <%=form.submit "Login" %>
+                </div>
+              </div>
+          <%end %>
+        </div>
+      </div>
     </div>
-<%end %>
+  </div>
+</div>
+</div>
+</body>
+</html>
+

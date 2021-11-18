@@ -1,6 +1,6 @@
 class AccountController < ApplicationController
   def signup
-    @user=User.new
+     @user=User.new
     if request.post?
       logger.info("POST REQUEST")
       @user=User.new(user_params)

@@ -1,4 +1,102 @@
-<h1>Profile#edit_profile</h1>
-<p>Find me in app/views/profile/edit_profile.html.erb</p>
-<%=@user.inspect %>
-<%= image_tag(@user.image) if @user.image.attached? %>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<style>
+    body {
+        background: rgb(99, 39, 120)
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #BA68C8
+    }
+
+    .profile-button {
+        background: rgb(99, 39, 120);
+        box-shadow: none;
+        border: none
+    }
+
+    .profile-button:hover {
+        background: #682773
+    }
+
+    .profile-button:focus {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .profile-button:active {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .back:hover {
+        color: #682773;
+        cursor: pointer
+    }
+
+    .labels {
+        font-size: 11px
+    }
+
+    .add-experience:hover {
+        background: #BA68C8;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #BA68C8
+    }
+    .box{
+        width: 250px;
+        border: 5px solid black;
+    }
+</style>
+<body>
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+<div class="box">
+          <%= image_tag(@user.image, style: 'height:50%; width:50%;') if @user.image.attached? %></div>
+        <span class="font-weight-bold"><%=@user.first_name %></span>
+        <span class="text-black-50"><%=@user.email %></span>
+        <span> </span></div>
+    </div>
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Profile Settings</h4>
+        </div>
+        <%=form_with(model:@user,local: true,url: profile_edit_profile_path) do |form| %>
+        <div class="row mt-2">
+          <div class="col-md-6"><%= form.label :first_name,:class =>"labels" %><%= form.text_field :first_name,:class =>"form-control"%></div>
+          <div class="col-md-6"><%= form.label :last_name,:class =>"labels" %><%= form.text_field :last_name,:class =>"form-control"%></div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-12"><%= form.label :mobile_number,:class =>"labels" %><%= form.number_field :mobile,:class =>"form-control"%></div>
+          <div class="col-md-12"><%= form.label :date_of_birth,:class =>"labels" %><%= form.date_field :date_of_birth,:class =>"form-control" %></div>
+          <div class="col-md-12">
+            <%=form.label :email,:class =>"labels" %>
+            <%=form.email_field :email,:class =>"form-control" %>
+</div>
+
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-6"> <%= form.label :image %><%= form.file_field :image%></div>
+        </div>
+        <div class="mt-5 text-center">   <%= form.submit class:'ui orange button submit'%></div>
+      </div>
+    </div>
+        <% end %>
+  </div>
+</div>
+</div>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
