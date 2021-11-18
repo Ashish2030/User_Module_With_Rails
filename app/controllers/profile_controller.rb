@@ -7,7 +7,8 @@ class ProfileController < ApplicationController
         logger.info "########################################"
         redirect_to "/home/index"
       else
-        render "profile/edit_profile"
+        flash[:success] = "first login"
+        redirect_to account_login_path
       end
     end
   end
